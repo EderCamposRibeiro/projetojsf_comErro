@@ -8,10 +8,15 @@
 	<title>Olá jsf</title>
 </h:head>
 <h:body>
-	<h:form>
-		<h:inputText></h:inputText>
-		<h:outputLabel value="Teste JSF"/>
+	<h:form id="formPessoa">
 	
+		<h1>Olá JSF</h1>
+	
+		<h:inputText id="campoNome" value="#{pessoaBean.nome}"> </h:inputText> 
+		<br/>
+		<h:outputLabel value="Teste JSF"/>
+		<br/>
+		<h:commandButton value="Botão"/>
 	</h:form>
 </h:body>
 </html>
