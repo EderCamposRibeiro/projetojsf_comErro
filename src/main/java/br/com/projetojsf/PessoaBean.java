@@ -1,36 +1,41 @@
 package br.com.projetojsf;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 
 @ManagedBean(name = "pessoaBean")
+@RequestScoped
 public class PessoaBean {
 	
 	private String nome;
-	private String sobrenome;
-	private String nomecompleto;
 	
-	public String mostrarNome() {
-		nomecompleto = nome + " " + sobrenome;
+	private List<String> nomes = new ArrayList<String>();
+	
+	public String addNome() {
+		nomes.add(nome);
 		return "";
 	}
 	
+	public List<String> getNomes() {
+		return nomes;
+	}
+
+
+
+	public void setNomes(List<String> nomes) {
+		this.nomes = nomes;
+	}
+
+
+
 	public String getNome() {
 		return nome;
 	}
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-	public String getSobrenome() {
-		return sobrenome;
-	}
-	public void setSobrenome(String sobrenome) {
-		this.sobrenome = sobrenome;
-	}
-	public String getNomecompleto() {
-		return nomecompleto;
-	}
-	public void setNomecompleto(String nomecompleto) {
-		this.nomecompleto = nomecompleto;
 	}
 	
 	
