@@ -11,12 +11,16 @@
 	<h:form id="formPessoa">
 	
 		<h1>Olá JSF</h1>
-	
-		<h:inputText id="campoNome" value="#{pessoaBean.nome}"> </h:inputText> 
+		Nome:
+		<h:inputText id="campoNome" value="#{pessoaBean.nome}" /> 
 		<br/>
-		<h:outputLabel value="Teste JSF"/>
+			Sobrenome:
+			<h:inputText id="sobrenome" value="#{pessoaBean.sobrenome}"/>
 		<br/>
-		<h:commandButton value="Botão"/>
+		<br/>
+			<h:outputText value="#{pessoaBean.nomecompleto}"/>
+		<br/>
+		<h:commandButton value="Mostrar Nome" action="#{pessoaBean.mostrarNome}"/>
 	</h:form>
 </h:body>
 </html>
