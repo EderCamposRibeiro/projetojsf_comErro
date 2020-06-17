@@ -1,15 +1,18 @@
 package br.com.projetojsf;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.ViewScoped;
 
+@ViewScoped
 @ManagedBean(name = "pessoaBean")
-@RequestScoped
-public class PessoaBean {
+public class PessoaBean implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
+
 	private String nome;
 	
 	private List<String> nomes = new ArrayList<String>();
