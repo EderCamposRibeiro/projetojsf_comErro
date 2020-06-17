@@ -4,21 +4,27 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+import javax.faces.component.html.HtmlCommandButton;
 
-@ApplicationScoped
+@SuppressWarnings("serial")
+@ViewScoped
 @ManagedBean(name = "pessoaBean")
 public class PessoaBean implements Serializable{
-	
-	private static final long serialVersionUID = 1L;
 
 	private String nome;
 	
+	private transient HtmlCommandButton commandButton ;
+	
 	private List<String> nomes = new ArrayList<String>();
 	
-	public String addNome() {
+	public String addNome()  {
 		nomes.add(nome);
+		
+		if (nomes.size() > 3 ) {
+			commandButton.setDisabled(true);
+		}
 		return "";
 	}
 	
@@ -39,6 +45,14 @@ public class PessoaBean implements Serializable{
 	}
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public HtmlCommandButton getCommandButton() {
+		return commandButton;
+	}
+
+	public void setCommandButton(HtmlCommandButton commandButton) {
+		this.commandButton = commandButton;
 	}
 	
 	
