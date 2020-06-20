@@ -24,8 +24,9 @@ public class PessoaBean implements Serializable{
 		
 		if (nomes.size() > 3 ) {
 			commandButton.setDisabled(true);
+			return "paginanavegada";
 		}
-		return "";
+		return ""; /*Retornando Null ou Vazio fica na mesma página -> outcome */
 	}
 	
 	public List<String> getNomes() {
