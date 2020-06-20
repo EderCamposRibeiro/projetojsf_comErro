@@ -24,7 +24,7 @@ public class PessoaBean implements Serializable{
 		
 		if (nomes.size() > 3 ) {
 			commandButton.setDisabled(true);
-			return "paginanavegada";
+			return "paginanavegada?faces-redirect=true";
 		}
 		return ""; /*Retornando Null ou Vazio fica na mesma página -> outcome */
 	}
