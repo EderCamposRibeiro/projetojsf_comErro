@@ -15,6 +15,10 @@ public class PessoaBean implements Serializable{
 
 	private String nome;
 	
+	private String senha;
+	
+	private String texto;
+	
 	private transient HtmlCommandButton commandButton ;
 	
 	private List<String> nomes = new ArrayList<String>();
@@ -55,6 +59,23 @@ public class PessoaBean implements Serializable{
 	public void setCommandButton(HtmlCommandButton commandButton) {
 		this.commandButton = commandButton;
 	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
+	public String getTexto() {
+		return texto;
+	}
+
+	public void setTexto(String texto) {
+		this.texto = texto;
+	}
+	
 	
 	
 
