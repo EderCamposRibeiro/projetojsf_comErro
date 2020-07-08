@@ -1,82 +1,43 @@
 package br.com.projetojsf;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
-import javax.faces.component.html.HtmlCommandButton;
 
-@SuppressWarnings("serial")
+import br.com.dao.DaoGeneric;
+import br.com.entidades.Pessoa;
+
 @ViewScoped
-@ManagedBean(name = "pessoaBean")
+@ManagedBean
 public class PessoaBean implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
 
-	private String nome;
+	private Pessoa pessoa = new Pessoa();
+	private DaoGeneric<Pessoa> daoGeneric = new DaoGeneric<Pessoa>();
 	
-	private String senha;
-	
-	private String texto;
-	
-	private transient HtmlCommandButton commandButton ;
-	
-	private List<String> nomes = new ArrayList<String>();
-	
-	public String addNome()  {
-		nomes.add(nome);
+	public String salvar() {
+		daoGeneric.salvar(pessoa);
 		
-		if (nomes.size() > 3 ) {
-			commandButton.setDisabled(true);
-			return "paginanavegada?faces-redirect=true";
-		}
-		return ""; /*Retornando Null ou Vazio fica na mesma página -> outcome */
-	}
-	
-	public List<String> getNomes() {
-		return nomes;
+		return "";
 	}
 
-
-
-	public void setNomes(List<String> nomes) {
-		this.nomes = nomes;
+	public Pessoa getPessoa() {
+		return pessoa;
 	}
 
-
-
-	public String getNome() {
-		return nome;
-	}
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
 	}
 
-	public HtmlCommandButton getCommandButton() {
-		return commandButton;
+	public DaoGeneric<Pessoa> getDaoGeneric() {
+		return daoGeneric;
 	}
 
-	public void setCommandButton(HtmlCommandButton commandButton) {
-		this.commandButton = commandButton;
-	}
-
-	public String getSenha() {
-		return senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
-
-	public String getTexto() {
-		return texto;
-	}
-
-	public void setTexto(String texto) {
-		this.texto = texto;
+	public void setDaoGeneric(DaoGeneric<Pessoa> daoGeneric) {
+		this.daoGeneric = daoGeneric;
 	}
 	
 	
-	
-
 }
